@@ -3,6 +3,7 @@ package com.girayserter.leaguefixtures;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class TeamsActivity extends AppCompatActivity {
         adapter=new TeamsAdapter();
         binding.recyclerViewTeams.setAdapter(adapter);
 
-        TeamsViewModel teamsViewModel=new TeamsViewModel();
+        TeamsViewModel teamsViewModel=new ViewModelProvider(this).get(TeamsViewModel.class);
         teamsViewModel.getTeams().observe(this, new Observer<List<Team>>() {
             @Override
             public void onChanged(List<Team> teamList) {
@@ -47,7 +48,7 @@ public class TeamsActivity extends AppCompatActivity {
         binding.buttonDrawFixture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TeamsActivity.this,"sdfasf",Toast.LENGTH_LONG).show();
+
 
             }
         });
