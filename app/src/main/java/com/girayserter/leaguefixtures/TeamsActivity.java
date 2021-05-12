@@ -5,12 +5,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.girayserter.leaguefixtures.adapters.TeamsAdapter;
+import com.girayserter.leaguefixtures.database.MatchesDatabase;
 import com.girayserter.leaguefixtures.databinding.ActivityTeamsBinding;
 import com.girayserter.leaguefixtures.models.Team;
 import com.girayserter.leaguefixtures.viewmodels.TeamsViewModel;;
@@ -23,6 +25,7 @@ public class TeamsActivity extends AppCompatActivity {
     TeamsAdapter adapter;
     List<Team> teams;
 
+    public static MatchesDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class TeamsActivity extends AppCompatActivity {
         binding.buttonDrawFixture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                teamsViewModel.insertMatches();
 
             }
         });
