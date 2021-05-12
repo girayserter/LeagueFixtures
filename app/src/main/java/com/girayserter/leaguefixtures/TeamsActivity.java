@@ -6,6 +6,8 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.girayserter.leaguefixtures.adapters.TeamsAdapter;
 import com.girayserter.leaguefixtures.databinding.ActivityTeamsBinding;
@@ -19,6 +21,7 @@ public class TeamsActivity extends AppCompatActivity {
     ActivityTeamsBinding binding;
     TeamsAdapter adapter;
     List<Team> teams;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,14 @@ public class TeamsActivity extends AppCompatActivity {
                 adapter.addTeamList(teamList);
                 adapter.notifyDataSetChanged();
                 teams=teamList;
+            }
+        });
+
+        binding.buttonDrawFixture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(TeamsActivity.this,"sdfasf",Toast.LENGTH_LONG).show();
+
             }
         });
     }
