@@ -4,7 +4,7 @@ package com.girayserter.leaguefixtures.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Team {
+public class Team {//Every Team has 2 attributes, TeamId and TeamName
     @SerializedName("teamId")
     @Expose
     private String teamId;

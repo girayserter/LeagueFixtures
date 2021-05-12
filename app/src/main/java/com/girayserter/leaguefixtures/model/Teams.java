@@ -8,7 +8,7 @@ import java.util.List;
 public class Teams {
     @SerializedName("teams")
     @Expose
-    private List<Team> teams=null;
+    private List<Team> teams=null;//Teams has Team list
 
     public List<Team> getTeams() {
         return teams;
