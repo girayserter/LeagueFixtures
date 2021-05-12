@@ -1,4 +1,4 @@
-package com.girayserter.leaguefixtures.model;
+package com.girayserter.leaguefixtures.models;
 
 import android.util.Log;
 

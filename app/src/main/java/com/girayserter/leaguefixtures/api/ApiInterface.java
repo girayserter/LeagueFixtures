@@ -1,6 +1,6 @@
 package com.girayserter.leaguefixtures.api;
 
-import com.girayserter.leaguefixtures.model.Teams;
+import com.girayserter.leaguefixtures.models.Teams;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
