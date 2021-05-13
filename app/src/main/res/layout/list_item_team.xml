@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="teamModel"
             type="com.girayserter.leaguefixtures.models.Team" />
     </data>
-    <androidx.cardview.widget.CardView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/team_cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,37 +18,35 @@
         android:layout_marginTop="5dp"
         app:cardCornerRadius="15dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="?attr/cardViewBg"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/team_id_text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="?attr/cardViewBg"
-                android:gravity="center">
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:text="@{`Team `+teamModel.teamId}"
+                android:textSize="12dp"
+                android:textColor="?attr/cardViewTxt" />
 
-                <TextView
-                    android:id="@+id/team_id_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="3dp"
-                    android:text="@{`Team `+teamModel.teamId}"
-                    android:textSize="12dp"
-                    android:textColor="?attr/cardViewTxt"
-                    />
+            <TextView
+                android:id="@+id/team_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="9dp"
+                android:text="@{teamModel.teamName}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:textColor="?attr/cardViewTxt" />
 
-                <TextView
-                    android:id="@+id/team_name_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="9dp"
-                    android:text="@{teamModel.teamName}"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="?attr/cardViewTxt"
-                    />
-
-            </LinearLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

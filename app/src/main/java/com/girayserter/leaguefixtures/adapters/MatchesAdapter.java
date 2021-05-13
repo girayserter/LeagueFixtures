@@ -19,10 +19,12 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.MyViewHo
     private List<Match> matchList;
 
 
-    public MatchesAdapter(){matchList=new ArrayList<>();}
+    public MatchesAdapter() {
+        matchList = new ArrayList<>();
+    }
 
-    public void addMatchList(List<Match> matchList){
-        this.matchList=matchList;
+    public void addMatchList(List<Match> matchList) {
+        this.matchList = matchList;
     }
 
     @Override
@@ -33,13 +35,13 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.MyViewHo
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ListItemFixtureBinding binding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_fixture,parent,false);
+        ListItemFixtureBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_fixture, parent, false);
         return new MyViewHolder(binding);
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ListItemFixtureBinding binding;
+        private final ListItemFixtureBinding binding;
 
         MyViewHolder(ListItemFixtureBinding binding) {
             super(binding.getRoot());
@@ -49,6 +51,6 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.binding.setMatchModel( matchList.get(position) );
+        holder.binding.setMatchModel(matchList.get(position));
     }
 }

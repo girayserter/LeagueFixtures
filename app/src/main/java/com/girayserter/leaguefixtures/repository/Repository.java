@@ -27,18 +27,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Repository {
 
-    public Repository(Application application){
-        MatchesDatabase database= MatchesDatabase.getInstance(application);
-        matchesDao =database.matchesDao();
+    public Repository(Application application) {
+        MatchesDatabase database = MatchesDatabase.getInstance(application);
+        matchesDao = database.matchesDao();
     }
 
     public List<Team> teamList;
-    private MatchesDao matchesDao;
+    private final MatchesDao matchesDao;
 
     /**
      * Creates LiveData of teams from API
      */
-    public MutableLiveData<List<Team>> getTeams(){
+    public MutableLiveData<List<Team>> getTeams() {
         final MutableLiveData<List<Team>> mutableLiveData = new MutableLiveData<>();
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder()
@@ -59,29 +59,29 @@ public class Repository {
 
             @Override
             public void onFailure(Call<Teams> call, Throwable t) {
-                Log.d("Failure: ", t.getMessage().toString());
+                Log.d("Failure: ", t.getMessage());
             }
         });
         return mutableLiveData;
     }
 
-    public void insertMatch(Match match){
+    public void insertMatch(Match match) {
         matchesDao.insertMatch(match);
     }
 
-    public void insertMatches(ArrayList<Match> matches){
+    public void insertMatches(ArrayList<Match> matches) {
         matchesDao.insertMatches(matches);
     }
 
-    public void deleteAllMatches(){
+    public void deleteAllMatches() {
         matchesDao.deleteAllMatches();
     }
 
-    public LiveData<List<Match>> getWeekMatches(int week){
+    public LiveData<List<Match>> getWeekMatches(int week) {
         return matchesDao.getWeekMatches(week);
     }
 
-    public LiveData<Integer> getWeekAmount(){
+    public LiveData<Integer> getWeekAmount() {
         return matchesDao.getWeekAmount();
     }
 }

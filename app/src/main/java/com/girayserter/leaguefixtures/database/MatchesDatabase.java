@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.girayserter.leaguefixtures.models.Match;
 
-@Database(entities = {Match.class},version = 1)
+@Database(entities = {Match.class}, version = 1)
 public abstract class MatchesDatabase extends RoomDatabase {
 
     public abstract MatchesDao matchesDao();
@@ -16,14 +16,14 @@ public abstract class MatchesDatabase extends RoomDatabase {
     private static final String DB_NAME = "Fixtures.db";
     private static volatile MatchesDatabase instance;
 
-    public static synchronized MatchesDatabase getInstance(Context context){
-        if(instance == null){
+    public static synchronized MatchesDatabase getInstance(Context context) {
+        if (instance == null) {
             instance = create(context);
         }
         return instance;
     }
 
-    private static MatchesDatabase create(final Context context){
+    private static MatchesDatabase create(final Context context) {
         return Room.databaseBuilder(
                 context,
                 MatchesDatabase.class,

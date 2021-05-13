@@ -22,7 +22,7 @@ import com.girayserter.leaguefixtures.adapters.TeamsAdapter;
 import com.girayserter.leaguefixtures.database.MatchesDatabase;
 import com.girayserter.leaguefixtures.databinding.ActivityTeamsBinding;
 import com.girayserter.leaguefixtures.models.Team;
-import com.girayserter.leaguefixtures.viewmodels.TeamsViewModel;;
+import com.girayserter.leaguefixtures.viewmodels.TeamsViewModel;
 
 import java.util.List;
 
@@ -35,19 +35,19 @@ public class TeamsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_teams);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_teams);
         binding.recyclerViewTeams.setHasFixedSize(true);
         binding.recyclerViewTeams.setLayoutManager(new LinearLayoutManager(this));
-        adapter=new TeamsAdapter();
+        adapter = new TeamsAdapter();
         binding.recyclerViewTeams.setAdapter(adapter);
 
-        TeamsViewModel teamsViewModel=new ViewModelProvider(this).get(TeamsViewModel.class);
+        TeamsViewModel teamsViewModel = new ViewModelProvider(this).get(TeamsViewModel.class);
         teamsViewModel.getTeams().observe(this, new Observer<List<Team>>() {
             @Override
             public void onChanged(List<Team> teamList) {
                 adapter.addTeamList(teamList);
                 adapter.notifyDataSetChanged();
-                teams=teamList;
+                teams = teamList;
             }
         });
 
@@ -55,7 +55,7 @@ public class TeamsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 teamsViewModel.insertMatches();
-                Intent intent=new Intent(TeamsActivity.this,FixturesActivity.class);
+                Intent intent = new Intent(TeamsActivity.this, FixturesActivity.class);
                 startActivity(intent);
             }
         });
@@ -64,16 +64,16 @@ public class TeamsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_app_bar,menu);
+        getMenuInflater().inflate(R.menu.menu_app_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item_change_theme:
-                switch(getResources().getConfiguration().uiMode& Configuration.UI_MODE_NIGHT_MASK){
+                switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                     case Configuration.UI_MODE_NIGHT_YES:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         break;

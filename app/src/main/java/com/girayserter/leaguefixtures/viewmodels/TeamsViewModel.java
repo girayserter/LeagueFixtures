@@ -15,37 +15,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeamsViewModel extends AndroidViewModel {
-    private Repository repository;
-    private MutableLiveData<List<Team>> teamList=null;
+    private final Repository repository;
+    private MutableLiveData<List<Team>> teamList = null;
     private LiveData<List<Match>> fixture;
 
 
-    public TeamsViewModel(@NonNull Application application){
+    public TeamsViewModel(@NonNull Application application) {
         super(application);
-        repository =new Repository(application);
+        repository = new Repository(application);
     }
 
     /**
      * Returns teams data from repository
      */
-    public LiveData<List<Team>> getTeams(){
-        if(teamList==null){
-            teamList= repository.getTeams();
+    public LiveData<List<Team>> getTeams() {
+        if (teamList == null) {
+            teamList = repository.getTeams();
         }
         return teamList;
     }
 
-    public LiveData<List<Match>> getWeekMatches(int week){
-        fixture= repository.getWeekMatches(week);
+    public LiveData<List<Match>> getWeekMatches(int week) {
+        fixture = repository.getWeekMatches(week);
         return fixture;
     }
 
-    public void insertMatches(){
+    public void insertMatches() {
         deleteAllMatches();
         repository.insertMatches(getRecord());
     }
 
-    public void deleteAllMatches(){
+    public void deleteAllMatches() {
         repository.deleteAllMatches();
     }
 
@@ -56,40 +56,35 @@ public class TeamsViewModel extends AndroidViewModel {
      * rest of the elements swipe 1 index up.
      */
     public ArrayList<Match> getRecord() {
-        List<Team> teams=teamList.getValue();//Get teams from teamList
-        ArrayList<Match> matches =new ArrayList<>();//ArrayList that will keep all league fixture
+        List<Team> teams = teamList.getValue();//Get teams from teamList
+        ArrayList<Match> matches = new ArrayList<>();//ArrayList that will keep all league fixture
 
-        int week=1;
-        int half=1;
-        int[] teamNumbers=new int[teams.size()];//Array to keep teamId
+        int week = 1;
+        int half = 1;
+        int[] teamNumbers = new int[teams.size()];//Array to keep teamId
         int[] ids;
         //Add a number for each team
-        for (int i=1;i<=teams.size();i++){
-            teamNumbers[i-1]=i;
+        for (int i = 1; i <= teams.size(); i++) {
+            teamNumbers[i - 1] = i;
         }
 
         //If there is odd number of teams add one more which had id "0"
-        if (teamNumbers.length % 2 != 0)
-        {
-            ids = new int[teamNumbers.length+1];
-            for(int i=0;i<teamNumbers.length ; i++)
-            {
+        if (teamNumbers.length % 2 != 0) {
+            ids = new int[teamNumbers.length + 1];
+            for (int i = 0; i < teamNumbers.length; i++) {
                 ids[i] = teamNumbers[i];
             }
             ids[ids.length - 1] = 0;
-        }
-        else
-        {
+        } else {
             ids = new int[teamNumbers.length];
-            for (int i = 0; i < teamNumbers.length; i++)
-            {
+            for (int i = 0; i < teamNumbers.length; i++) {
                 ids[i] = teamNumbers[i];
             }
         }
 
-        int[][] placement = new int[ids.length/2][2];//Represents a week of league, holds teams as 2D array
+        int[][] placement = new int[ids.length / 2][2];//Represents a week of league, holds teams as 2D array
         //Changes Home and Away for second half of league
-        for(;half<3;half++) {
+        for (; half < 3; half++) {
             //There should be (teamAmount-1) week to all teams match with each other
             for (int k = 0; k < ids.length - 1; k++) {
                 //Places teams as "U" shape to placement array

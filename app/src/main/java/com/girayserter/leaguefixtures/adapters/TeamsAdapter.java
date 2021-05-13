@@ -21,10 +21,12 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.MyViewHolder
     private List<Team> teamList;
 
 
-    public TeamsAdapter(){teamList=new ArrayList<>();}
+    public TeamsAdapter() {
+        teamList = new ArrayList<>();
+    }
 
-    public void addTeamList(List<Team> teamList){
-        this.teamList=teamList;
+    public void addTeamList(List<Team> teamList) {
+        this.teamList = teamList;
     }
 
     @Override
@@ -35,13 +37,13 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ListItemTeamBinding binding= DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_team,parent,false);
+        ListItemTeamBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_team, parent, false);
         return new MyViewHolder(binding);
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private ListItemTeamBinding binding;
+        private final ListItemTeamBinding binding;
 
         MyViewHolder(ListItemTeamBinding binding) {
             super(binding.getRoot());
@@ -51,6 +53,6 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.binding.setTeamModel( teamList.get(position) );
+        holder.binding.setTeamModel(teamList.get(position));
     }
 }

@@ -23,25 +23,24 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
     private List<Match> matchList;
     private int pageAmount;
     private ViewPager2 viewPager2;
-    private MatchesAdapter matchesAdapter;
-    public MutableLiveData<Integer> pageNumber=new MutableLiveData<>();
+    private final MatchesAdapter matchesAdapter;
+    public MutableLiveData<Integer> pageNumber = new MutableLiveData<>();
     Context context;
 
 
     public ViewPagerAdapter(Context context) {
         this.matchList = new ArrayList<>();
-        this.viewPager2 = viewPager2;
-        this.context=context;
-        matchesAdapter=new MatchesAdapter();
+        this.context = context;
+        matchesAdapter = new MatchesAdapter();
         pageNumber.setValue(5);
     }
 
-    public void addMatchList(List<Match> matchList){
-        this.matchList=matchList;
+    public void addMatchList(List<Match> matchList) {
+        this.matchList = matchList;
     }
 
-    public void setPageAmount(int pageAmount){
-        this.pageAmount=pageAmount;
+    public void setPageAmount(int pageAmount) {
+        this.pageAmount = pageAmount;
     }
 
 
@@ -61,7 +60,7 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.binding.setMatchModel(matchList.get(0));
 
-        if(pageNumber.getValue()!=position){
+        if (pageNumber.getValue() != position) {
             pageNumber.setValue(position);
         }
 
@@ -81,11 +80,11 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ItemViewpagerBinding binding;
+        private final ItemViewpagerBinding binding;
 
         ViewHolder(ItemViewpagerBinding binding) {
             super(binding.getRoot());
-            this.binding=binding;
+            this.binding = binding;
 
         }
     }

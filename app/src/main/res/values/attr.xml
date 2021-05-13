@@ -5,6 +5,6 @@
     <attr name="cardViewTxt" format="reference" />
     <attr name="buttonBg" format="reference" />
     <attr name="buttonText" format="reference" />
-    <attr name="txtColor" format="reference"/>
-    <attr name="sttsBarColor" format="reference"/>
+    <attr name="txtColor" format="reference" />
+    <attr name="sttsBarColor" format="reference" />
 </resources>

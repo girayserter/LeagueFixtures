@@ -12,22 +12,22 @@ import com.girayserter.leaguefixtures.repository.Repository;
 import java.util.List;
 
 public class FixturesViewModel extends AndroidViewModel {
-    private Repository repo;
+    private final Repository repo;
     private LiveData<List<Match>> fixture;
     private LiveData<Integer> weekAmount;
 
-    public FixturesViewModel(@NonNull Application application){
+    public FixturesViewModel(@NonNull Application application) {
         super(application);
-        repo=new Repository(application);
+        repo = new Repository(application);
     }
 
-    public LiveData<List<Match>> getWeekMatches(int week){
-        fixture=repo.getWeekMatches(week);
+    public LiveData<List<Match>> getWeekMatches(int week) {
+        fixture = repo.getWeekMatches(week);
         return fixture;
     }
 
-    public LiveData<Integer> getWeekAmount(){
-        weekAmount=repo.getWeekAmount();
+    public LiveData<Integer> getWeekAmount() {
+        weekAmount = repo.getWeekAmount();
         return weekAmount;
     }
 }
