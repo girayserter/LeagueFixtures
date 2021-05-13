@@ -2,10 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="teamModel"
             type="com.girayserter.leaguefixtures.models.Team" />
+        <import type="android.view.View"/>
     </data>
 
     <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,7 +16,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        android:visibility="@{teamModel.teamName == `NaN` ? View.GONE : View.VISIBLE}">
 
         <LinearLayout
             android:layout_width="match_parent"
