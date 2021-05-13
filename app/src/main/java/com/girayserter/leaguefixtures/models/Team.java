@@ -27,4 +27,13 @@ public class Team {//Every Team has 2 attributes, TeamId and TeamName
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
+
+    public boolean isNaN(String teamName){
+        if (teamName.equals("NaN")){
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
 }
