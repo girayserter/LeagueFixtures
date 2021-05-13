@@ -27,4 +27,8 @@ public interface MatchesDao {
     //Gets matches at given week number
     @Query("SELECT * FROM matches WHERE week=:week ORDER BY id ASC")
     LiveData<List<Match>> getWeekMatches(int week);
+
+    //Gets total weeks in league
+    @Query("SELECT MAX(week) FROM matches")
+    LiveData<Integer> getWeekAmount();
 }

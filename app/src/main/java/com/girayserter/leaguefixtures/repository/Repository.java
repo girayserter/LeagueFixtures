@@ -80,4 +80,8 @@ public class Repository {
     public LiveData<List<Match>> getWeekMatches(int week){
         return matchesDao.getWeekMatches(week);
     }
+
+    public LiveData<Integer> getWeekAmount(){
+        return matchesDao.getWeekAmount();
+    }
 }
