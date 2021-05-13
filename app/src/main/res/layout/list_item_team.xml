@@ -6,7 +6,6 @@
             type="com.girayserter.leaguefixtures.models.Team" />
     </data>
     <androidx.cardview.widget.CardView
-
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/team_cardView"
         android:layout_width="match_parent"
@@ -15,14 +14,13 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        app:cardCornerRadius="5dp">
-
+        app:cardCornerRadius="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/white"
+                android:background="?attr/cardViewBg"
                 android:gravity="center">
 
                 <TextView
@@ -33,6 +31,7 @@
                     android:layout_marginTop="3dp"
                     android:text="@{`Team `+teamModel.teamId}"
                     android:textSize="12dp"
+                    android:textColor="?attr/cardViewTxt"
                     />
 
                 <TextView
@@ -45,6 +44,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
+                    android:textColor="?attr/cardViewTxt"
                     />
 
             </LinearLayout>
