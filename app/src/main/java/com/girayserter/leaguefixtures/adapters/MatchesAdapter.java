@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.girayserter.leaguefixtures.R;
-import com.girayserter.leaguefixtures.database.Match;
+import com.girayserter.leaguefixtures.models.Match;
 import com.girayserter.leaguefixtures.databinding.ListItemFixtureBinding;
 
 import java.util.ArrayList;

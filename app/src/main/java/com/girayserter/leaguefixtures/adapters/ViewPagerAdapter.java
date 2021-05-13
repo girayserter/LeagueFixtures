@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.girayserter.leaguefixtures.R;
-import com.girayserter.leaguefixtures.database.Match;
+import com.girayserter.leaguefixtures.models.Match;
 import com.girayserter.leaguefixtures.databinding.ItemViewpagerBinding;
 
 import java.util.ArrayList;

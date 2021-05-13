@@ -6,6 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.girayserter.leaguefixtures.models.Match;
+
 @Database(entities = {Match.class},version = 1)
 public abstract class MatchesDatabase extends RoomDatabase {
 

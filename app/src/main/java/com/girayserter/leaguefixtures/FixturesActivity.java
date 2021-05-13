@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 
 import com.girayserter.leaguefixtures.adapters.ViewPagerAdapter;
-import com.girayserter.leaguefixtures.database.Match;
+import com.girayserter.leaguefixtures.models.Match;
 import com.girayserter.leaguefixtures.databinding.ActivityFixturesBinding;
 import com.girayserter.leaguefixtures.viewmodels.FixturesViewModel;
 

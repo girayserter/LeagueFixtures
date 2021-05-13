@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.girayserter.leaguefixtures.api.ApiInterface;
 import com.girayserter.leaguefixtures.api.ApiUrl;
-import com.girayserter.leaguefixtures.database.Match;
+import com.girayserter.leaguefixtures.models.Match;
 import com.girayserter.leaguefixtures.database.MatchesDao;
 import com.girayserter.leaguefixtures.database.MatchesDatabase;
 import com.girayserter.leaguefixtures.models.Team;

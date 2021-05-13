@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.girayserter.leaguefixtures.database.Match;
+import com.girayserter.leaguefixtures.models.Match;
 import com.girayserter.leaguefixtures.models.Team;
 import com.girayserter.leaguefixtures.repository.Repository;
 

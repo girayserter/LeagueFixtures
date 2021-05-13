@@ -1,4 +1,4 @@
-package com.girayserter.leaguefixtures.database;
+package com.girayserter.leaguefixtures.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

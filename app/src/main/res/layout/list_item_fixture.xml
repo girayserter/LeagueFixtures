@@ -3,7 +3,7 @@
     <data>
         <variable
             name="matchModel"
-            type="com.girayserter.leaguefixtures.database.Match" />
+            type="com.girayserter.leaguefixtures.models.Match" />
     </data>
     <androidx.cardview.widget.CardView
         xmlns:tools="http://schemas.android.com/tools"
