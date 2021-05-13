@@ -22,7 +22,7 @@ public interface MatchesDao {
 
     //Deletes All Matches from table
     @Query("DELETE FROM matches")
-    void deleteAllMatches();
+    ListenableFuture<Integer> deleteAllMatches();
 
     //Gets matches at given week number
     @Query("SELECT * FROM matches WHERE week=:week ORDER BY id ASC")

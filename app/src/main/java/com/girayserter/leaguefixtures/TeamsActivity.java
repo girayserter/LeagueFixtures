@@ -26,16 +26,12 @@ public class TeamsActivity extends AppCompatActivity {
     TeamsAdapter adapter;
     List<Team> teams;
 
-    public static MatchesDatabase db;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_teams);
-
         binding.recyclerViewTeams.setHasFixedSize(true);
         binding.recyclerViewTeams.setLayoutManager(new LinearLayoutManager(this));
-
         adapter=new TeamsAdapter();
         binding.recyclerViewTeams.setAdapter(adapter);
 

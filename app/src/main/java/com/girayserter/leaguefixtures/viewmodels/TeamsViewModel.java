@@ -41,11 +41,8 @@ public class TeamsViewModel extends AndroidViewModel {
     }
 
     public void insertMatches(){
+        deleteAllMatches();
         repository.insertMatches(getRecord());
-    }
-
-    public void insertMatch(Match match){
-        repository.insertMatch(match);
     }
 
     public void deleteAllMatches(){
