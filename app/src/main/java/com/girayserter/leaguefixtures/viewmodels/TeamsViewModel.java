@@ -58,29 +58,25 @@ public class TeamsViewModel extends AndroidViewModel {
     public ArrayList<Match> getRecord() {
         List<Team> teams = teamList.getValue();//Get teams from teamList
         ArrayList<Match> matches = new ArrayList<>();//ArrayList that will keep all league fixture
+        Team emptyTeam=new Team();//Will be added to teams if there is odd number of teams
+        emptyTeam.setTeamId(String.valueOf(teams.size()+1));
+        emptyTeam.setTeamName("NaN");
 
         int week = 1;
         int half = 1;
-        int[] teamNumbers = new int[teams.size()];//Array to keep teamId
-        int[] ids;
-        //Add a number for each team
-        for (int i = 1; i <= teams.size(); i++) {
-            teamNumbers[i - 1] = i;
+        int[] ids;//Array to keep numbers represents teams
+
+        //Add NaN team to teams if there is odd number of teams
+        if (teams.size() % 2 != 0) {
+            teams.add(emptyTeam);
         }
 
-        //If there is odd number of teams add one more which had id "0"
-        if (teamNumbers.length % 2 != 0) {
-            ids = new int[teamNumbers.length + 1];
-            for (int i = 0; i < teamNumbers.length; i++) {
-                ids[i] = teamNumbers[i];
-            }
-            ids[ids.length - 1] = 0;
-        } else {
-            ids = new int[teamNumbers.length];
-            for (int i = 0; i < teamNumbers.length; i++) {
-                ids[i] = teamNumbers[i];
-            }
+
+        ids = new int[teams.size()];
+        for (int i = 1; i <= teams.size(); i++) {
+            ids[i-1] = i;
         }
+
 
         int[][] placement = new int[ids.length / 2][2];//Represents a week of league, holds teams as 2D array
         //Changes Home and Away for second half of league
