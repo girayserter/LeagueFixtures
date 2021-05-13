@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -52,7 +53,8 @@ public class TeamsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 teamsViewModel.insertMatches();
-
+                Intent intent=new Intent(TeamsActivity.this,FixturesActivity.class);
+                startActivity(intent);
             }
         });
     }
